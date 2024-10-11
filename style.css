@@ -10,49 +10,7 @@ body {
     height: 100vh;  
 }
 
-.navigation-section {
-    background-color: #172053;
-    height: 100vh;
-    width: 150px;
-    padding: 5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
-}
 
-.sport-chose {
-    color: white;
-    font-size: 20px;
-    margin-bottom: 25px;
-    border-bottom: 1px solid rgb(134, 31, 31);
-}
-
-.sports-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-
-.navitem {
-    margin-bottom: 30px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    padding: 10px;
-    border-radius: 10px;
-}
-
-
-.navitem:hover {
-    background-color: rgb(134, 31, 31); 
-    transform: scale(1.3);  
-}
-
-.active{
-    background-color: rgb(134, 31, 31);
-    transform: scale(1.3);
-}
 
 
 
@@ -145,45 +103,45 @@ body {
 
 
 .main-section {
-    padding: 20px; /* Prostor unutar main sekcije */
+    padding: 20px; 
     flex-grow: 1;
 }
 
 .header {
-    display: flex; /* Koristi flexbox za raspored elemenata */
-    align-items: center; /* Poravnaj elemente po vertikali */
-    justify-content: space-between; /* Rasporedi elemente */
-    background-color: #f8f8f8; /* Svetla pozadina */
-    border-radius: 8px; /* Zaobljeni uglovi */
-    padding: 10px; /* Prostor unutar header-a */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Blaga senka */
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+    background-color: #f8f8f8;
+    border-radius: 8px; 
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /
 }
 
 .searchdiv {
-    display: flex; /* Flexbox za raspored slika i inputa */
-    align-items: center; /* Poravnaj po vertikali */
+    display: flex; 
+    align-items: center; 
 }
 
 .search-pic {
-    width: 20px; /* Širina ikone pretrage */
-    height: 20px; /* Visina ikone pretrage */
-    margin-right: 10px; /* Razmak između ikone i inputa */
+    width: 20px; 
+    height: 20px; 
+    margin-right: 10px; 
 }
 
 .searchbar {
-    border: 1px solid #ccc; /* Granica inputa */
-    border-radius: 4px; /* Zaobljeni uglovi */
-    padding: 8px; /* Prostor unutar inputa */
-    font-size: 16px; /* Veličina fonta */
-    width: 250px; /* Širina pretraživača */
-    transition: border 0.3s; /* Glatka promena granice */
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    padding: 8px; 
+    font-size: 16px; 
+    width: 250px; 
+    transition: border 0.3s; 
 }
 
 .searchbar:focus {
-    border-color: #007bff; /* Promeni boju granice kada je input fokusiran */
-    outline: none; /* Ukloni outline kada je fokusiran */
+    border-color: #007bff; 
+    outline: none; 
 }
 
 .view {
-    margin-top: 20px; /* Razmak između hedera i sadržaja */
+    margin-top: 20px; 
 }
