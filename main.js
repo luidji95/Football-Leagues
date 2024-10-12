@@ -18,7 +18,7 @@ class AppManger {
         this.Leagues.forEach(league => {
             const leagueItem = document.createElement('div');
             leagueItem.textContent = league.name;
-            leagueItem.id = league.id; // Postavi ID lige kao atribut div-a
+            leagueItem.id = league.id;
             leagueListDiv.appendChild(leagueItem);
         });
     }
@@ -64,27 +64,31 @@ async function fetchLeaguesByCountry() {
         const response = await fetch(`https://www.thesportsdb.com/api/v1/json/3/search_all_teams.php?s=Soccer&c=England`);
         const data = await response.json();
 
-       
+        if (!data.teams) {
+            throw new Error('No leagues found'); 
+        }
 
-        data.forEach(leagueName => {
-            const league = new League(leagueName);
+        data.teams.forEach(team => {
+            const league = new League(team.strLeague, team.idLeague); 
             appMenager.addLeague(league);
         });
-        
-        appMenager.displayLeagues(); 
+
+        appMenager.displayLeagues();
     } catch (error) {
-        console.error('Error fetching leagues', error);
+        console.error('Error fetching leagues:', error);
     }
 }
 
 
-document.getElementById('league-list').addEventListener('click', async function(event) {
+
+document.getElementById('league-list').addEventListener('click', async function (event) {
     if (event.target.id) {
-        const leagueId = event.target.id;
+        const leagueId = event.target.id; 
+        console.log(`Fetching teams for league ID: ${leagueId}`);
 
         try {
             
-            const response = await fetch(`https://www.thesportsdb.com/api/v1/json/3/search_all_teams.php?s=Soccer&c=England`);
+            const response = await fetch(`https://www.thesportsdb.com/api/v1/json/3/lookup_all_teams.php?id=${leagueId}`);
             const data = await response.json();
 
             console.log(data);
@@ -92,18 +96,17 @@ document.getElementById('league-list').addEventListener('click', async function(
             const clubListDiv = document.getElementById('club-list');
             clubListDiv.innerHTML = ''; 
 
-            data.teams
-                .forEach(team => {
-                    const clubItem = document.createElement('div');
-                    clubItem.textContent = team.strTeam; // Ime kluba
-                    clubListDiv.appendChild(clubItem);
-                });
-
+            data.teams.forEach(team => {
+                const clubItem = document.createElement('div');
+                clubItem.textContent = team.strTeam; 
+                clubListDiv.appendChild(clubItem);
+            });
         } catch (error) {
-            console.error('Error fetching clubs', error);
+            console.error('Error fetching clubs:', error);
         }
     }
 });
+
 
 
 window.addEventListener('DOMContentLoaded', fetchLeaguesByCountry);
