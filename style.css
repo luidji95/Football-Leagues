@@ -1,147 +1,134 @@
-*{
+/* Osnovne postavke */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
-body {
+
+section {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+/* Sekcija za zemlje */
+.leagues-section {
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.leagues {
+    font-size: 24px;
+    font-weight: bold;
+    color: #007bff;
+}
+
+/* Lista zemalja */
+.country-list {
     display: flex;
-    width: 1200px;
-    margin: 0 auto; 
-    height: 100vh;  
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
 }
 
-
-
-
-
-
-
-
-
-
-
-.leagues-section{
-    background-color: whitesmoke;
-    height: 100vh;
-    width: 250px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 5px;
-}
-.leagues{
-    font-size: 20px;
-    margin-bottom: 25px;
-   
-}
-.league-list {
-    width: 100%; 
-    display: flex;
-    flex-direction: column;
-}
-
-.league-list div {
-    padding: 10px;
-    margin: 5px 0; 
-    border-radius: 5px; 
-    cursor: pointer; 
-    transition: background-color 0.3s; 
-}
-
-
-.football-league {
-    padding: 10px;
-    background-color: #c3fcb5;
-    margin: 5px 0;
+.country-item {
+    padding: 10px 15px;
     border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
-.football-league:hover {
-    background-color: rgb(77, 168, 82);
+.country-item:hover {
+    background-color: #0056b3;
 }
 
-.basket-league {
-    padding: 10px;
-    background-color: #fdd47a; /* Primer boje za košarku */
-    margin: 5px 0;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.basket-league:hover {
-    background-color: rgb(255, 200, 2); /* Svetlija nijansa */
-}
-
-.motor-league{
-    padding: 10px;
-    background-color: #c2c2bd; /* Primer boje za košarku */
-    margin: 5px 0;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    
-}
-.motor-league:hover{
-    background-color: #141413;
-    color:white;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* Glavna sekcija */
 .main-section {
-    padding: 20px; 
-    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
 
+/* Header i pretraga */
 .header {
-    display: flex; 
-    align-items: center; 
-    justify-content: space-between; 
-    background-color: #f8f8f8;
-    border-radius: 8px; 
-    padding: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
 }
 
 .searchdiv {
-    display: flex; 
-    align-items: center; 
+    position: relative;
 }
 
 .search-pic {
-    width: 20px; 
-    height: 20px; 
-    margin-right: 10px; 
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
 }
 
 .searchbar {
-    border: 1px solid #ccc; 
-    border-radius: 4px; 
-    padding: 8px; 
-    font-size: 16px; 
-    width: 250px; 
-    transition: border 0.3s; 
+    padding: 10px 10px 10px 40px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    width: 300px;
+    transition: border-color 0.3s;
 }
 
 .searchbar:focus {
-    border-color: #007bff; 
-    outline: none; 
+    border-color: #007bff;
 }
 
+/* Prikaz klubova i igrača */
 .view {
-    margin-top: 20px; 
+    display: flex;
+    gap: 20px;
+}
+
+/* Lista klubova */
+#club-list {
+    
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    overflow-y: auto;
+    max-height: 400px;
+}
+
+.club-item {
+    padding: 10px 15px;
+    border-radius: 5px;
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 5px 0;
+}
+
+.club-item:hover {
+    background-color: #218838;
+}
+
+/* Lista igrača */
+#player-list {
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    overflow-y: auto;
+    max-height: 400px;
+}
+
+.player-item {
+    padding: 10px 15px;
+    border-radius: 5px;
+    background-color: #17a2b8;
+    color: white;
+    margin: 5px 0;
 }
