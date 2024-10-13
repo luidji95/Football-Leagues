@@ -144,3 +144,21 @@ countries.forEach(countryName => {
 window.addEventListener('DOMContentLoaded', () => {
     appManager.displayCountries();
 });
+
+
+countryListDiv.addEventListener('click', event => {
+    if (event.target.classList.contains('country-item')) {
+        const selectedCountry = event.target.textContent;
+        console.log(`Fetching clubs for: ${selectedCountry}`);
+        appManager.fetchClubsForCountry(selectedCountry);
+    }
+});
+
+
+clubListDiv.addEventListener('click', event => {
+    if (event.target.classList.contains('club-item')) {
+        const teamId = event.target.dataset.teamId;
+        console.log(`Fetching players for team ID: ${teamId}`);
+        appManager.fetchPlayersForClub(teamId);
+    }
+});
