@@ -162,3 +162,40 @@ clubListDiv.addEventListener('click', event => {
         appManager.fetchPlayersForClub(teamId);
     }
 });
+
+const searchBar = document.querySelector('.searchbar');
+
+// Event listener za "Enter" pritisak
+searchBar.addEventListener('keydown', function (event) {
+    if (event.key === 'Enter') {
+        const playerName = event.target.value.trim();
+        if (playerName) {
+            searchPlayerByName(playerName);
+        }
+    }
+});
+
+// Funkcija za pretragu igrača preko API zahteva
+async function searchPlayerByName(playerName) {
+    try {
+        const response = await fetch(`https://www.thesportsdb.com/api/v1/json/3/searchplayers.php?p=${playerName}`);
+        const data = await response.json();
+
+        playerListDiv.innerHTML = ''; // Očisti prethodni prikaz
+
+        if (data.player) {
+            data.player.forEach(player => {
+                const playerItem = document.createElement('div');
+                playerItem.textContent = `${player.strPlayer} - ${player.strTeam || 'No club'}`; // Prikaz imena i kluba
+                playerListDiv.appendChild(playerItem);
+            });
+        } else {
+            playerListDiv.innerHTML = '<p>No players found.</p>';
+        }
+    } catch (error) {
+        console.error('Error fetching player:', error);
+        playerListDiv.innerHTML = '<p>Error fetching player. Please try again later.</p>';
+    }
+}
+
+
