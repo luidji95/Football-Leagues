@@ -181,7 +181,7 @@ async function searchPlayerByName(playerName) {
         const response = await fetch(`https://www.thesportsdb.com/api/v1/json/3/searchplayers.php?p=${playerName}`);
         const data = await response.json();
 
-        playerListDiv.innerHTML = ''; // Očisti prethodni prikaz
+        playerListDiv.innerHTML = ''; 
 
         if (data.player) {
             data.player.forEach(player => {
